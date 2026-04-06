@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Papa 🎂</title>
+  <meta name="description" content="A premium digital birthday card for the most loving Papa in the world, from Saanvi & Riddhish." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───────── CANVAS FOR GLOBAL PARTICLES ───────── -->
+  <canvas id="globalCanvas"></canvas>
+
+  <!-- ─────────────── CARD WRAPPER ─────────────── -->
+  <div class="card-book" id="cardBook">
+
+    <!-- ══════════════ PAGE 1 – COVER ══════════════ -->
+    <section class="card-page page-cover active" id="page1">
+      <canvas class="page-canvas" id="canvas1"></canvas>
+
+      <!-- bokeh blobs -->
+      <div class="bokeh-layer">
+        <div class="bokeh b1"></div><div class="bokeh b2"></div>
+        <div class="bokeh b3"></div><div class="bokeh b4"></div>
+        <div class="bokeh b5"></div>
+      </div>
+
+      <!-- balloons -->
+      <div class="balloons">
+        <div class="balloon bal-1">🎈</div>
+        <div class="balloon bal-2">🎈</div>
+        <div class="balloon bal-3">🎈</div>
+        <div class="balloon bal-4">🎈</div>
+        <div class="balloon bal-5">🎈</div>
+      </div>
+
+      <!-- confetti burst -->
+      <div class="confetti-layer" id="confetti1"></div>
+
+      <!-- main content -->
+      <div class="page-content cover-content">
+        <div class="crown-icon">👑</div>
+        <p class="pre-title">A Birthday Celebration for</p>
+        <h1 class="cover-title glow-text">Happy Birthday<br/><span class="papa-text">Papa</span></h1>
+        <div class="golden-divider"><span></span><span class="diamond">✦</span><span></span></div>
+        <p class="cover-sub">With all our love &amp; blessings on your special day</p>
+        <div class="star-row">⭐ 🌟 ✨ 🌟 ⭐</div>
+
+        <!-- decorative watercolor shapes -->
+        <div class="wc-wave wc-top"></div>
+        <div class="wc-wave wc-bottom"></div>
+      </div>
+
+      <button class="nav-btn next-btn" onclick="goToPage(2)" aria-label="Next page">
+        <span>Open Card</span> <span class="arrow">›</span>
+      </button>
+    </section>
+
+    <!-- ══════════════ PAGE 2 – EMOTIONAL MSG ══════════════ -->
+    <section class="card-page page-inner1" id="page2">
+      <canvas class="page-canvas" id="canvas2"></canvas>
+
+      <div class="bokeh-layer">
+        <div class="bokeh bi1"></div><div class="bokeh bi2"></div>
+        <div class="bokeh bi3"></div>
+      </div>
+
+      <!-- silhouette illustration -->
+      <div class="silhouette-wrap">
+        <svg class="silhouette-svg" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" aria-label="Father and child silhouette">
+          <!-- glow halo -->
+          <ellipse cx="140" cy="200" rx="110" ry="18" fill="url(#haloGrad)" opacity="0.5"/>
+          <!-- father body -->
+          <ellipse cx="105" cy="65" rx="22" ry="22" fill="url(#silGrad)"/>
+          <rect x="83" y="88" width="44" height="75" rx="20" fill="url(#silGrad)"/>
+          <rect x="67" y="95" width="18" height="55" rx="9" fill="url(#silGrad)"/>
+          <rect x="127" y="95" width="18" height="55" rx="9" fill="url(#silGrad)"/>
+          <rect x="88" y="163" width="18" height="50" rx="9" fill="url(#silGrad)"/>
+          <rect x="111" y="163" width="18" height="50" rx="9" fill="url(#silGrad)"/>
+          <!-- child body -->
+          <ellipse cx="165" cy="98" rx="16" ry="16" fill="url(#silGrad2)"/>
+          <rect x="149" y="115" width="32" height="55" rx="15" fill="url(#silGrad2)"/>
+          <rect x="137" y="120" width="13" height="40" rx="7" fill="url(#silGrad2)"/>
+          <rect x="163" y="170" width="13" height="36" rx="7" fill="url(#silGrad2)"/>
+          <rect x="179" y="170" width="13" height="36" rx="7" fill="url(#silGrad2)"/>
+          <!-- father's arm around child -->
+          <path d="M127 115 Q150 105 161 118" stroke="url(#silGrad)" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <!-- heart glow above -->
+          <text x="136" y="50" font-size="24" text-anchor="middle" fill="url(#heartGrad)">❤️</text>
+          <!-- glow ring -->
+          <circle cx="135" cy="125" r="95" stroke="url(#ringGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <circle cx="135" cy="125" r="105" stroke="url(#ringGrad)" stroke-width="0.7" fill="none" opacity="0.2"/>
+          <defs>
+            <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="silGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1d4ed8"/>
+              <stop offset="100%" stop-color="#0f172a"/>
+            </linearGradient>
+            <linearGradient id="silGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#1e40af"/>
+            </linearGradient>
+            <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fbbf24"/>
+              <stop offset="100%" stop-color="#f472b6"/>
+            </linearGradient>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7dd3fc"/>
+              <stop offset="100%" stop-color="#a78bfa"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="sil-glow"></div>
+      </div>
+
+      <div class="page-content inner-content">
+        <div class="dear-badge">💙 A Note from the Heart 💙</div>
+        <div class="message-card glass-card">
+          <p class="salutation">Dear Papa,</p>
+          <p class="message-body">
+            You are our <em>strength</em>, our <em>guide</em>, and our biggest <em>inspiration</em>.
+            Thank you for always being there for us with love and care.
+            We are so lucky to have you in our lives.
+          </p>
+          <div class="msg-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="nav-btn prev-btn" onclick="goToPage(1)" aria-label="Previous page">‹ Back</button>
+        <div class="page-dots">
+          <span class="dot" onclick="goToPage(1)"></span>
+          <span class="dot active" onclick="goToPage(2)"></span>
+          <span class="dot" onclick="goToPage(3)"></span>
+          <span class="dot" onclick="goToPage(4)"></span>
+        </div>
+        <button class="nav-btn next-btn" onclick="goToPage(3)" aria-label="Next page">Next ›</button>
+      </div>
+    </section>
+
+    <!-- ══════════════ PAGE 3 – PERSONAL TOUCH ══════════════ -->
+    <section class="card-page page-inner2" id="page3">
+      <canvas class="page-canvas" id="canvas3"></canvas>
+
+      <div class="bokeh-layer">
+        <div class="bokeh bp1"></div><div class="bokeh bp2"></div>
+        <div class="bokeh bp3"></div><div class="bokeh bp4"></div>
+      </div>
+
+      <!-- ribbon decoration -->
+      <div class="ribbon-top"></div>
+      <div class="ribbon-bottom"></div>
+
+      <div class="confetti-layer" id="confetti3"></div>
+
+      <!-- floating stars -->
+      <div class="float-stars">
+        <span class="fs s1">⭐</span><span class="fs s2">✨</span>
+        <span class="fs s3">🌟</span><span class="fs s4">⭐</span>
+        <span class="fs s5">✨</span><span class="fs s6">🌟</span>
+      </div>
+
+      <div class="page-content p3-content">
+        <div class="p3-icon-row">🎁 &nbsp; 🎊 &nbsp; 🎉 &nbsp; 🎊 &nbsp; 🎁</div>
+        <div class="p3-glass glass-card">
+          <p class="p3-message">
+            Your love makes our world <span class="highlight-word">brighter</span> every day.
+            We hope this year brings you <span class="highlight-word">happiness</span>,
+            <span class="highlight-word">success</span>, and everything you deserve.
+          </p>
+          <div class="wish-ribbon">🌈 &nbsp; May every dream of yours come true &nbsp; 🌈</div>
+        </div>
+        <div class="p3-decor">
+          <div class="decor-star d1">★</div>
+          <div class="decor-star d2">★</div>
+          <div class="decor-star d3">★</div>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="nav-btn prev-btn" onclick="goToPage(2)" aria-label="Previous page">‹ Back</button>
+        <div class="page-dots">
+          <span class="dot" onclick="goToPage(1)"></span>
+          <span class="dot" onclick="goToPage(2)"></span>
+          <span class="dot active" onclick="goToPage(3)"></span>
+          <span class="dot" onclick="goToPage(4)"></span>
+        </div>
+        <button class="nav-btn next-btn" onclick="goToPage(4)" aria-label="Next page">Next ›</button>
+      </div>
+    </section>
+
+    <!-- ══════════════ PAGE 4 – CLOSING ══════════════ -->
+    <section class="card-page page-close" id="page4">
+      <canvas class="page-canvas" id="canvas4"></canvas>
+
+      <div class="bokeh-layer">
+        <div class="bokeh bc1"></div><div class="bokeh bc2"></div>
+        <div class="bokeh bc3"></div>
+      </div>
+
+      <!-- birthday cake SVG -->
+      <div class="cake-wrap">
+        <svg class="cake-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Birthday cake">
+          <!-- plate shadow -->
+          <ellipse cx="100" cy="188" rx="70" ry="8" fill="#0f172a" opacity="0.3"/>
+          <!-- cake base bottom -->
+          <rect x="30" y="140" width="140" height="45" rx="12" fill="url(#cakeBot)"/>
+          <!-- cake base top -->
+          <rect x="40" y="100" width="120" height="45" rx="10" fill="url(#cakeMid)"/>
+          <!-- frosting drips bottom layer -->
+          <path d="M30 150 Q45 140 55 152 Q65 140 80 152 Q95 140 110 152 Q125 140 140 152 Q155 140 170 150" stroke="#e0f2fe" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <!-- frosting drips mid layer -->
+          <path d="M40 108 Q55 98 65 110 Q80 98 95 110 Q110 98 125 110 Q140 98 155 108" stroke="#bae6fd" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <!-- cream top -->
+          <ellipse cx="100" cy="100" rx="60" ry="10" fill="#e0f2fe" opacity="0.9"/>
+          <!-- sprinkles -->
+          <rect x="55" y="118" width="8" height="3" rx="2" fill="#fbbf24" transform="rotate(-20 55 118)"/>
+          <rect x="80" y="126" width="8" height="3" rx="2" fill="#f472b6" transform="rotate(15 80 126)"/>
+          <rect x="110" y="120" width="8" height="3" rx="2" fill="#34d399" transform="rotate(-10 110 120)"/>
+          <rect x="135" y="128" width="8" height="3" rx="2" fill="#a78bfa" transform="rotate(25 135 128)"/>
+          <rect x="60" y="158" width="8" height="3" rx="2" fill="#fb923c" transform="rotate(10 60 158)"/>
+          <rect x="100" y="155" width="8" height="3" rx="2" fill="#60a5fa" transform="rotate(-15 100 155)"/>
+          <rect x="140" y="162" width="8" height="3" rx="2" fill="#fbbf24" transform="rotate(20 140 162)"/>
+          <!-- candles -->
+          <g class="candle" id="c1">
+            <rect x="72" y="72" width="10" height="30" rx="4" fill="url(#candleRed)"/>
+            <ellipse cx="77" cy="72" rx="5" ry="3" fill="#fde68a"/>
+          </g>
+          <g class="candle" id="c2">
+            <rect x="95" y="65" width="10" height="37" rx="4" fill="url(#candleBlue)"/>
+            <ellipse cx="100" cy="65" rx="5" ry="3" fill="#fde68a"/>
+          </g>
+          <g class="candle" id="c3">
+            <rect x="118" y="72" width="10" height="30" rx="4" fill="url(#candleGold)"/>
+            <ellipse cx="123" cy="72" rx="5" ry="3" fill="#fde68a"/>
+          </g>
+          <!-- flames -->
+          <g class="flame" id="f1">
+            <ellipse cx="77" cy="66" rx="4" ry="7" fill="url(#flameGrad)" opacity="0.95"/>
+            <ellipse cx="77" cy="67" rx="2" ry="4" fill="#fff" opacity="0.5"/>
+          </g>
+          <g class="flame" id="f2">
+            <ellipse cx="100" cy="58" rx="4" ry="8" fill="url(#flameGrad)" opacity="0.95"/>
+            <ellipse cx="100" cy="60" rx="2" ry="4" fill="#fff" opacity="0.5"/>
+          </g>
+          <g class="flame" id="f3">
+            <ellipse cx="123" cy="66" rx="4" ry="7" fill="url(#flameGrad)" opacity="0.95"/>
+            <ellipse cx="123" cy="67" rx="2" ry="4" fill="#fff" opacity="0.5"/>
+          </g>
+          <defs>
+            <linearGradient id="cakeBot" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1e40af"/>
+              <stop offset="100%" stop-color="#1e3a8a"/>
+            </linearGradient>
+            <linearGradient id="cakeMid" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
+            </linearGradient>
+            <linearGradient id="candleRed" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f472b6"/>
+              <stop offset="100%" stop-color="#ec4899"/>
+            </linearGradient>
+            <linearGradient id="candleBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#0ea5e9"/>
+            </linearGradient>
+            <linearGradient id="candleGold" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#fbbf24"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+            <radialGradient id="flameGrad" cx="50%" cy="70%" r="60%">
+              <stop offset="0%" stop-color="#fde68a"/>
+              <stop offset="50%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#dc2626" stop-opacity="0.5"/>
+            </radialGradient>
+          </defs>
+        </svg>
+        <div class="cake-glow"></div>
+      </div>
+
+      <div class="page-content close-content">
+        <div class="close-badge">🎂 Many Happy Returns 🎂</div>
+        <div class="close-glass glass-card">
+          <p class="closing-line">With lots of love,</p>
+          <p class="sign-names">Saanvi &amp; Riddhish <span class="heart-pulse">❤️</span></p>
+          <div class="golden-divider sm"><span></span><span class="diamond">✦</span><span></span></div>
+          <p class="close-wish">May your day be as wonderful as you are, Papa! 🌟</p>
+        </div>
+        <div class="close-stars">
+          <span>🌟</span><span>✨</span><span>⭐</span><span>✨</span><span>🌟</span>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="nav-btn prev-btn" onclick="goToPage(3)" aria-label="Previous page">‹ Back</button>
+        <div class="page-dots">
+          <span class="dot" onclick="goToPage(1)"></span>
+          <span class="dot" onclick="goToPage(2)"></span>
+          <span class="dot" onclick="goToPage(3)"></span>
+          <span class="dot active" onclick="goToPage(4)"></span>
+        </div>
+        <button class="nav-btn next-btn restart-btn" onclick="goToPage(1)" aria-label="Restart">↺ Restart</button>
+      </div>
+    </section>
+
+  </div><!-- /card-book -->
+
+  <!-- page transition overlay -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
